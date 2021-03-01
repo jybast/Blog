@@ -1,0 +1,173 @@
+/*-----------------------------------*/
+/*          Fichier de style         */
+/* Date : 26/01/2021                 */
+/* Auteur: Jean-Yves BASTARD         */
+/* Dernière modification :           */
+/*-----------------------------------*/
+/**"""""""""""""""""""""""""""""""""""
+* Styles de base
+""""""""""""""""""""""""""""""""""""**/
+body {
+    background-color:ivory;
+}
+
+section {
+
+}
+
+header {
+
+}
+
+article {
+
+}
+
+footer {
+
+}
+
+p {
+
+}
+
+img {
+
+}
+
+/**""""""""""""""""""""""""""""""""""""
+* Styles du thème
+"""""""""""""""""""""""""""""""""""""**/
+/*-------------------------------------
+* Layout Grid
+*
+***************************************/
+.blog_header {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr 3f 2fr;
+    grid-gap: 10px;
+    grid-template-areas: "logo titre titre titre infos infos";
+    background: rgb(175, 202, 20);
+    background-image: url(../img/cabine.jpg);
+}
+
+.logo {
+    grid-area: logo;
+    grid-column: 1 ;
+    grid-row: 1;
+    background: rgb(209, 60, 60);
+}
+
+.titre {
+    grid-area: titre;
+    grid-column: 2 / span 3 ;
+    grid-row: 1;
+    background: rgb(29, 43, 168);
+    height: 200px;
+}
+
+.infos {
+    grid-area: infos;
+    grid-column: 5 /Span 2 ;
+    grid-row: 1;
+    background: #333;
+}
+
+.blog_conteneur {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr 3f 2fr;
+    grid-gap: 5px;
+    grid-template-areas: "gauche centre centre centre droite droite";
+    background: rgb(175, 202, 20);
+
+}
+
+.gauche {
+    grid-area: gauche;
+    grid-row: 1;
+}
+
+.centre {
+    grid-area: centre;
+    grid-row: 1;
+}
+
+.droite {
+    grid-area: droite;
+    grid-row: 1;
+}
+/**-----------------------------------
+* En-tête de page statique
+* ---------------------------------- **/
+.blog-header {
+    display: flex;
+    flex-direction: column; /** organise les blocks par pile **/
+    background-image: url(../img/cabine.jpg);
+    /* background-size: contain; */
+    background-repeat: no-repeat;
+    background-position: center; 
+    height: 200px;
+    width: 100%;
+}
+
+.banniere {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+   
+}
+
+.banniere-logo {
+    margin-top: 40px;
+    margin-left: 20px;
+    order: 1;
+    flex-grow: 1;
+}
+
+.banniere-titre{
+    order: 2;
+    flex-grow: 3;
+    margin-top: 35px;
+
+    font-weight: 500;
+    font-size: 3em;
+    text-align: center;
+    color:skyblue;
+    text-decoration: aqua;
+    text-shadow: darkgrey 2px 2px;
+}
+
+.banniere-info {
+    order: 3;
+    flex-grow: 1;
+    margin-top: 35px;
+    text-align: center;
+}
+
+/* ----------- Page -----------------------------*/
+
+
+/* ----------- Formulaires --------------------- */
+.form-container {
+    display:flex;
+    flex-direction: column; /** organise les blocks par pile **/
+    margin: 0 auto;
+    max-width: 500px;
+    padding-top: 8vh;
+    margin-bottom: 60px;
+}
+
+.form-masque{
+    background:aquamarine;
+    padding: 30px 30px 20px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 4px;
+}
+

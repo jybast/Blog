@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter
+{% endblock %}
+{% block header %}
+	<div class="blog_header">
+		<div class="logo">
+			<img src=" {{ asset('ressources/img/cc_transparent.png') | imagine_filter('logo')}}" height="80px" alt="logo">
+		</div>
+		<div class="titre">
+			Titre</div>
+		<div class="infos">
+			Infos</div>
+		{% block banniere %}{% endblock %}
+		{% block menu %}{% endblock %}
+	</div>
+{% endblock %}
+{% block body %}
+	<div class="container">
+		<div class="blog_conteneur">
+			<div class="gauche">Aside gauche</div>
+			<div class="centre">
+				<div class="form-container">
+					<div class="form-masque">
+						<form method="post">
+							{% if error %}
+								<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+							{% endif %}
+
+							{% if app.user %}
+								<div class="mb-3">
+									Vous êtes connecté en tant que
+									{{ app.user.username }},
+									<a href="{{ path('blog_logout') }}">Logout</a>
+								</div>
+							{% endif %}
+
+							<h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
+							<label for="inputEmail">Email</label>
+							<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+							<label for="inputPassword">Mot de passe</label>
+							<input type="password" name="password" id="inputPassword" class="form-control" required>
+
+							<input
+							type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+							{#
+												        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+												        See https://symfony.com/doc/current/security/remember_me.html
+												    #}
+							<div class="checkbox mb-3">
+
+								<input type="checkbox" id="remember_me" name="_remember_me">
+								<label for="remember_me">
+									Se rappeler de moi
+								</label>
+							</div>
+
+
+							<button class="btn btn-lg btn-primary" type="submit">
+								Se connecter
+							</button>
+						</form>
+
+						<div>
+							<a class="formulaire-lien" href="{{ path('blog_forgot_password_request') }}">Mot de passe oublié ?</a>
+						</div>
+						<div>
+							<a class="formulaire-lien" href="{{ path('blog_register') }}">Pas encore inscrit ?</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="droite">Aside droite</div>
+
+	</div>
+
+
+	{% block footer %}
+		<div
+			class="copyright">
+			<!-- Copyright -->
+			<div class="copyright-text">Copyright:
+				<a class="texte-rouge" href="">Jyba@st - 2020</a>
+			</div>
+			<!-- Copyright -->
+		</div>
+	{% endblock %}
+{% endblock %}

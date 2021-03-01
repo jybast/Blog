@@ -1,0 +1,46 @@
+# See dos how to configure the bundle: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
+liip_imagine:
+    # valid drivers options include "gd" or "gmagick" or "imagick"
+    driver: "gd"
+
+    # jeux de filtres
+    filter_sets:
+
+        # filtre pour logo
+        logo:
+            quality: 95
+            filters:
+                thumbnail:
+                    size: [40, 60]
+                    mode: outbound
+                scale: 
+                   max: [40, 60]
+
+        # filtre pour photo miniature
+        miniature:
+            quality: 75
+            filters:
+                thumbnail:
+                    size: [100, 100]
+                    mode: outbound
+        
+        # filtre pour photo d'article
+        vignette:
+            quality: 75
+            filters:
+                scale: 
+                    dim: [300, 300]
+                    
+        # filtre pour photo pleine page
+        photo:
+            quality: 80
+            filters:
+                scale:
+                    min: [800, 300]
+                thumbnail:
+                    size: [800, 300]
+                    mode: outbound
+                background:
+                    size: [804, 304]
+                    position: center
+                    color: '#000000'

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Envoi de mail pour modification du mot de passe{% endblock %}
+
+{% block body %}
+    <p>
+        Un mail contenant un lien pour la modifiaction de votre mot de passe vous a été envoyé.
+        Ce lien expire dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+    </p>
+    <p>Si vous n'avez rien reçu vérifiez votre boîte de spam ou <a href="{{ path('blog_forgot_password_request') }}">Essayer à nouveau</a>.</p>
+{% endblock %}

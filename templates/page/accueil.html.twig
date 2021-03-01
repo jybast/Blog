@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+
+		{% block header %}
+			<div class="blog-header">
+				{% block banniere %}
+					{% include "includes/_banniere.html.twig" %}
+				{% endblock %}
+			
+				
+				{% block menu %}
+					{% include "includes/_menupages.html.twig" %}
+				{% endblock %}
+			</div>
+		{% endblock %}
+		{% block body %}
+		<div class="example-wrapper">
+			<h1>Bonjour {{ app.user.nom }}! ✅</h1>
+
+			{% for message in app.flashes('success') %}
+				<div class="alert alert-success" role="alert">{{ message }}</div>
+			{% endfor %}
+			
+			This friendly message is coming from:
+			<ul>
+				<li>Your controller at <code><a href="{{ 'D:/wamp64/www/Blog/src/Controller/PageController.php'|file_link(0) }}">src/Controller/PageController.php</a></code></li>
+				<li>Your template at <code><a href="{{ 'D:/wamp64/www/Blog/templates/page/acueil.html.twig'|file_link(0) }}">templates/page/accueil.html.twig</a></code></li>
+			</ul>
+		</div>
+		
+		{% endblock %}
+
+
+
+
+
+

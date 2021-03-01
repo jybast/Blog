@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des articles{% endblock %}
+
+{% block body %}
+    <h1>Liste des articles</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Slug</th>
+                <th>Intro</th>
+                <th>Contenu</th>
+                <th>PublierAt</th>
+                <th>ModifierAt</th>
+                <th>Valide</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.titre }}</td>
+                <td>{{ article.slug }}</td>
+                <td>{{ article.intro }}</td>
+                <td>{{ article.contenu }}</td>
+                <td>{{ article.publierAt ? article.publierAt|date('d/m/Y') : '' }}</td>
+                <td>{{ article.modifierAt ? article.modifierAt|date('d/m/Y') : '' }}</td>
+                <td>{{ article.valide ? 'Oui' : 'Non' }}</td>
+                <td>
+                    <a href="{{ path('article_afficher', {'id': article.id}) }}">Afficher l'article</a>
+                    <a href="{{ path('article_modifier', {'id': article.id}) }}">Modifier l'article</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucun article trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_ajouter') }}">Rédiger un nouvel article</a>
+
+    <a href="{{ path('accueil') }}">retour à l'accueil</a>
+{% endblock %}

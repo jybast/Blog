@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.titre }}{% endblock %}
+
+{% block body %}
+    <h1>{{ article.titre }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ article.titre }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ article.slug }}</td>
+            </tr>
+            <tr>
+                <th>Intro</th>
+                <td>{{ article.intro }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ article.contenu }}</td>
+            </tr>
+            <tr>
+                <th>PublierAt</th>
+                <td>{{ article.publierAt ? article.publierAt|date('d/m/Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>ModifierAt</th>
+                <td>{{ article.modifierAt ? article.modifierAt|date('d/m/Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Valide</th>
+                <td>{{ article.valide ? 'Oui' : 'Non' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_lister') }}">Retour à la liste</a>
+
+    <a href="{{ path('article_modifier', {'id': article.id}) }}">Modifier l'article</a>
+
+    {{ include('article/_supprimer_form.html.twig') }}
+{% endblock %}
