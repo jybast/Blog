@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<!-- Insertion des balises <meta> -->
 		{% include "includes/_meta.html.twig" %}
 
 		<link rel="icon" href="{{ asset('/favicon.ico') }} "/>
@@ -10,9 +11,8 @@
 				Voyage Passion
 			{% endblock %}
 		</title>
-		<!-- Bootstrap CSS -->
-		<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+		<!-- bibiothèques pour la gestion du thème -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 		<!-- Feuilles de style personnelles -->
 		<link rel="stylesheet" href="{{ asset('ressources/css/theme.css')}}"> 
 		{% block stylesheets %}{% endblock %}
@@ -26,10 +26,10 @@
 							{% include "includes/_banniere.html.twig" %}
 						{% endblock %}
 					
-						
 						{% block menu %}
 
 						{% endblock %}
+
 					</div>
 				{% endblock %}
 				{% block body %}{% endblock %}

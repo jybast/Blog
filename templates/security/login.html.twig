@@ -1,20 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Se connecter
-{% endblock %}
+{% block title %}Se connecter{% endblock %}
 {% block header %}
-	<div class="blog_header">
-		<div class="logo">
-			<img src=" {{ asset('ressources/img/cc_transparent.png') | imagine_filter('logo')}}" height="80px" alt="logo">
-		</div>
-		<div class="titre">
-			Titre</div>
-		<div class="infos">
-			Infos</div>
-		{% block banniere %}{% endblock %}
-		{% block menu %}{% endblock %}
+	<div class="blog-header">
+		{% block banniere %}
+			{% include "includes/_banniere.html.twig" %}
+		{% endblock %}
+	
+		{% block menu %}
+
+		{% endblock %}
 	</div>
 {% endblock %}
+
 {% block body %}
 	<div class="container">
 		<div class="blog_conteneur">
